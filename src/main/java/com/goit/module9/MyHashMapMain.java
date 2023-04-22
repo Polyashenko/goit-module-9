@@ -1,4 +1,4 @@
-package com.goit.modele9;
+package com.goit.module9;
 
 public class MyHashMapMain {
     public static void main(String[] args) {

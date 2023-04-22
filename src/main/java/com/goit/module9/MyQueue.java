@@ -1,6 +1,6 @@
-package com.goit.modele9;
+package com.goit.module9;
 
-public class MyStack {
+public class MyQueue {
 
     private Node head;
     private Node tail;
@@ -19,37 +19,6 @@ public class MyStack {
         size++;
     }
 
-
-    private Node getNode(int index) { // Пошук Node за індексом
-        if (index >= size) { //якщо index >= количество ячеек то в нас елементів немає
-            return null;
-        }
-        //ведем перебор с начала списка
-        Node node = head;
-        for (int j = 0; j < index; j++) {
-            //сдвигаемся на следующий элемент списка
-            node = node.getNext();
-        }
-        return node;
-    }
-
-    public void remove(int index) {
-        Node node = getNode(index); // Node - це тип змінної - Визиваем метод getNode, передаем в метод індекс який
-        // повертає обєкт типа Node і ми записуем його в переменную node.
-        if (node != null) { //
-            if (node == head) { // чи нода являеться head, якщо так то наша node і є head
-                head.getNext().setPrevious(null); // першим елементов робивм настуний і переведущий елемент робоми null
-                head = head.getNext(); //
-            } else if (node == tail) {
-                tail.getPrevious().setNext(null); // попереднім елемен робим робим наступним і останній null
-                tail = tail.getPrevious();
-            } else {
-                node.getNext().setPrevious(node.getPrevious()); // наприклад якщо видаляем 4ти елемент то 3три стае 4м
-                node.getPrevious().setNext(node.getNext()); //
-            }
-        }
-    }
-
     public int size() {
         return size;
     }
@@ -61,16 +30,16 @@ public class MyStack {
     }
 
     public Object peek() {
-        return tail == null ? null : tail.getValue(); //
+        return head == null ? null : head.getValue(); //
     }
 
-    public Object pop() {
-        if (tail != null) {
-            Node node = tail;
-            if (tail.getNext() != null) {
-                tail.getNext().setPrevious(null);
+    public Object poll() {
+        if (head != null) {
+            Node node = head;
+            if (head.getNext() != null) {
+                head.getNext().setPrevious(null);
             }
-            tail = tail.getNext();
+            head = head.getNext();
             return node.getValue();
         }
         return null;

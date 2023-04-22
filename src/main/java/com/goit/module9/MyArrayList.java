@@ -1,4 +1,4 @@
-package com.goit.modele9;
+package com.goit.module9;
 
 import java.util.Arrays;
 

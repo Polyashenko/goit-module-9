@@ -1,9 +1,9 @@
-package com.goit.modele9;
+package com.goit.module9;
 
-public class Main {
+public class MyLinkedListMain {
     public static void main(String[] args) {
-        MyArrayList list = new MyArrayList();
-
+        MyLinkedList list = new MyLinkedList();
+        System.out.println(list);
         list.add("New element0");
         list.add("New element1");
         list.add("New element2");
@@ -14,13 +14,21 @@ public class Main {
         list.add("New element7");
         list.add("New element8");
         list.add("New element9");
+
         System.out.println(list);
 
-        System.out.println("Fourth element of the ArrayList: "+list.get(3));
+        System.out.println(list.get(6));
 
+        list.remove(6);
+        System.out.println(list);
+
+        list.size();
+        System.out.println(list);
+
+        list.clear();
         System.out.println();
 
-        MyArrayList list1 = new MyArrayList();
+
 
     }
 }
